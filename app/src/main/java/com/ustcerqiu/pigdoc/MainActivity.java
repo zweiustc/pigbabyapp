@@ -7,6 +7,7 @@ import android.graphics.drawable.ClipDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -14,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends BaseClass {
+public class MainActivity extends BaseClass implements View.OnClickListener{
  //内部属性定义区
     //定义进度条内部的图像id，百分比id, 文字id，进度值，文字值;(一一对应关系
     private final int[] levelImgIds = {R.id.main_rate_1, R.id.main_rate_2, R.id.main_rate_3, R.id.main_rate_4, R.id.main_rate_5, R.id.main_rate_6};
@@ -35,6 +36,22 @@ public class MainActivity extends BaseClass {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//覆盖点击onclick函数，以统一本页面所有的点击活动
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.main_icon_pig_statistics:  //存栏状态按钮
+                StatusDetailActivity.actionStart(MainActivity.this, "存栏状态");
+                break;
+            default:
+                ViewGroup vp = (ViewGroup) v;
+                String toastMassage = "你点击了： " + ((TextView)vp.getChildAt(1)).getText();
+                Toast.makeText(MainActivity.this, toastMassage, Toast.LENGTH_SHORT).show();
+                break;
+        }//switch
+    }//onClick
+
+    ///############################################################################
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,14 +88,7 @@ public class MainActivity extends BaseClass {
         //设置常用功能键的点击后的效果
         for(int Id : commonButtonIds){
             layout = (LinearLayout) findViewById(Id);
-            layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ViewGroup vp = (ViewGroup) v;
-                    String toastMassage = "你点击了： " + ((TextView)vp.getChildAt(1)).getText();
-                    Toast.makeText(MainActivity.this, toastMassage, Toast.LENGTH_SHORT).show();
-                }
-            });
+            layout.setOnClickListener(this);
         } //for
 
         //数据输入全部 点击后的功能列表所需的数据
@@ -121,15 +131,12 @@ public class MainActivity extends BaseClass {
             }//if else
 
         } //for
-
-
-
-
-
-
-
-
     }//onCreate
-}
+
+
+
+
+
+}//activity
 
 

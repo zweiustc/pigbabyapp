@@ -73,7 +73,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".InputListActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".InputListActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".StatusDetailActivity"></activity>
     </application>
 
 </manifest>

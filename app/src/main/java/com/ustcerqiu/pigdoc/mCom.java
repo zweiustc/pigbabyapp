@@ -2,6 +2,7 @@ package com.ustcerqiu.pigdoc;
 
 import android.content.Context;
 import android.graphics.drawable.ClipDrawable;
+import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -27,6 +29,7 @@ import java.util.concurrent.TimeUnit;
 
 public class mCom {
     //属性定义区
+
 
 //////////////////////////////////////////////////////
 
@@ -295,39 +298,51 @@ public class mCom {
         ImageView image;
         ClipDrawable clipDrawable;
         int rateNum;
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rate_bar_item_layout, parent, false);
-        //添加动画
-        AnimationSet animationSet = new AnimationSet(true);
-        TranslateAnimation translateAnimation = new TranslateAnimation(
-                Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        translateAnimation.setDuration(1000); //时间
-        animationSet.addAnimation(translateAnimation);
-
+        int timePart = 2000/rateBarDataList.size();
+        int i=0;
         for( mRateBarData barData : rateBarDataList){
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rate_bar_item_layout, parent, false);
             text = (TextView) view.findViewById(R.id.bar_name);
             text.setText(barData.name);
-            rateNum = (int) barData.rate * 10000;
+            rateNum = (int) (barData.rate * 10000);
             image = (ImageView) view.findViewById(R.id.bar_rate);
-            clipDrawable = (ClipDrawable) image.getBackground();   //一定要擦背景吗？ 擦写前端是否可以?
-            clipDrawable.setLevel(rateNum);
+            clipDrawable = (ClipDrawable) image.getBackground();   //一定要擦背景吗？ 擦写前端是否可以? no
+            clipDrawable.setLevel(rateNum+50); //避免不出颜色
             text = (TextView) view.findViewById(R.id.bar_rate_percent);
             text.setText( String.format(Locale.getDefault()," %.1f%%", barData.rate*100).toUpperCase() ); //按当地习惯使用字母
             text = (TextView) view.findViewById(R.id.bar_info);
             text.setText(barData.info);
-            parent.addView(view);
-            image.startAnimation(translateAnimation);
-            delay(500);
+            //加入parent，并执行动画
+            itemAnimation(parent, view ,i*timePart); i++;
         }
 
     }//insertRateBars
-    public static void delay(int ms){
+    public static void itemAnimation(final ViewGroup parent, final View v, int durationMs){
+        //添加动画
+        Handler handler = new Handler();
+        AnimationSet animationSet = new AnimationSet(true);
+        TranslateAnimation translateAnimation = new TranslateAnimation(
+                Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+        translateAnimation.setDuration(600); //时间
+        animationSet.addAnimation(translateAnimation);
+        final TranslateAnimation animation = translateAnimation;
+        Runnable runnable =new Runnable() {
+            @Override
+            public void run() {
+                parent.addView(v);
+                v.startAnimation(animation);
+            }
+        };
+        handler.postDelayed(runnable, durationMs);
+    }//
+  /*  public static void delay(int ms){
          try {
              TimeUnit.MILLISECONDS.sleep(ms); //sleep wait 区分
-             } catch (InterruptedException e) {
+         } catch (InterruptedException e) {
                 e.printStackTrace();
-             }
-       }
-    //定义所需数据类
+         }
+    } */
+    //定义所需横向柱状条的单个的 数据类
     static public class mRateBarData{
         String name;
         double rate;  //默认小数为双精度

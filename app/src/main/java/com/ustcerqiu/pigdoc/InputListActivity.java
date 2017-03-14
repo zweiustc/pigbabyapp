@@ -19,7 +19,7 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.List;
 
-public class InputListActivity extends AppCompatActivity {
+public class InputListActivity extends BaseClass {
     //属性区域
     //定义 数组用以保存 传递过来的 子项数据
     private mCom.ParcelableItem[] itemList; //parcelable属性在本页面内并没作用; 此处是为了保存intent中数据方便
@@ -196,13 +196,6 @@ public class InputListActivity extends AppCompatActivity {
 
     }//onCreate
 
-    @Override
-    public void onBackPressed() {
-        //重写点击安卓返回键后的动作
-        // super.onBackPressed();
-        finish(); //
-        overridePendingTransition(R.anim.translate_in_back, R.anim.translate_out_back);  //添加返回切换动画
-    }
 
 
 
