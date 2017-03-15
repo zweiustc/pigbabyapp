@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -292,12 +293,21 @@ public class mCom {
 
 //################# 功能块5 ####################
 //定义一种标准的横向进度比例条 竖排列表的方法
-//传入参数 数据列表、所要填入的布局veiwGroup。其中数据列表中单项数据必须包含 名称，进度比例，进度说明文字
-    static public void insertRateBars(List<mRateBarData> rateBarDataList , ViewGroup parent){
+//传入参数 所要填入的布局veiwGroup, 数据列表、名称一行字符数，数据最后一个信息的显示字符宽度（<5), 以及是否使用动画。
+// 其中数据列表中单项数据必须包含 名称，进度比例，进度说明文字
+    static public void insertRateBars(ViewGroup parent,  List<mRateBarData> rateBarDataList, int nameLengthNm, int infoLengNm, Boolean addAnimation){
         View view; //每个生成的view都会有一个id，更改时候需要几个条子，就得几个view？测试
         TextView text;
         ImageView image;
         ClipDrawable clipDrawable;
+        float scale = parent.getContext().getResources().getDisplayMetrics().density; //dp与px的换算系数
+        if(infoLengNm > 7) infoLengNm = 7; //设置最多显示7个汉子字符
+        int lengthPx = (int)(infoLengNm * scale * 14 +3*scale+ 0.5f); //每个字符给予 14dp宽度; 需要显示的宽度字符
+        if(nameLengthNm > 10) nameLengthNm = 10;
+        int nameLengthPx = (int)(nameLengthNm * scale * 14+3*scale + 0.5f);
+        //获取view的布局参数，参数中有长宽属性
+        LinearLayout.LayoutParams layoutParams;
+
         int rateNum;
         int timePart = 2000/rateBarDataList.size();
         int i=0;
@@ -305,6 +315,11 @@ public class mCom {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rate_bar_item_layout, parent, false);
             text = (TextView) view.findViewById(R.id.bar_name);
             text.setText(barData.name);
+            //设置 name 的显示宽度
+            //获取view的布局参数，参数中有长宽属性
+            layoutParams = (LinearLayout.LayoutParams) text.getLayoutParams();//取控件textView当前的布局参数
+            layoutParams.width = nameLengthPx;
+            text.setLayoutParams(layoutParams);
             rateNum = (int) (barData.rate * 10000);
             image = (ImageView) view.findViewById(R.id.bar_rate);
             clipDrawable = (ClipDrawable) image.getBackground();   //一定要擦背景吗？ 擦写前端是否可以? no
@@ -313,9 +328,19 @@ public class mCom {
             text.setText( String.format(Locale.getDefault()," %.1f%%", barData.rate*100).toUpperCase() ); //按当地习惯使用字母
             text = (TextView) view.findViewById(R.id.bar_info);
             text.setText(barData.info);
-            //加入parent，并执行动画
-            itemAnimation(parent, view ,i*timePart); i++;
-        }
+            //设置info的显示宽度
+            //获取view的布局参数，参数中有长宽属性
+            layoutParams = (LinearLayout.LayoutParams) text.getLayoutParams();//取控件textView当前的布局参数
+            layoutParams.width = lengthPx;
+            text.setLayoutParams(layoutParams);
+            if(addAnimation){
+                //加入parent，并执行动画
+                itemAnimation(parent, view ,i*timePart);
+            }else{
+                parent.addView(view);
+            }
+             i++; //用以动画延时参数
+        }//for
 
     }//insertRateBars
     public static void itemAnimation(final ViewGroup parent, final View v, int startOffsetMs){
@@ -340,13 +365,7 @@ public class mCom {
         };
         handler.postDelayed(runnable, durationMs); */
     }//
-  /*  public static void delay(int ms){
-         try {
-             TimeUnit.MILLISECONDS.sleep(ms); //sleep wait 区分
-         } catch (InterruptedException e) {
-                e.printStackTrace();
-         }
-    } */
+
     //定义所需横向柱状条的单个的 数据类
     static public class mRateBarData{
         String name;
@@ -359,6 +378,75 @@ public class mCom {
         }
     }//class mRateData
 
+
+
+//################# 功能块6 ####################
+//定义一 类，该类的实例 内部包含一个横向柱状图的 数据，并包含有插入不同数目的图的方法
+//具体属性为：name, rate, info, 还有 title 是否显示title的是showTitle
+// 具体属方法为：
+    static public class HorizontalRateBar{
+        //定义每一条数据所需要的参数 其余与参数与父类相同
+        String title;  //表格标题
+        Boolean showTitle = false;
+        List<mRateBarData> barDataList;
+        int maxNameWordsLength; //最长的行名称的长度，以中文字符长度计算，不足进1
+        int maxInfoWordsLength; //最长的信息名的长度
+
+        //构造函数
+        public HorizontalRateBar(List<mRateBarData> ibarDataList, String title, Boolean showTitle){
+            this.title = title;
+            this.showTitle = showTitle;
+            this.barDataList = ibarDataList;
+            int maxlen1 = 0;
+            int maxlen2 =0;
+            int temp;
+            for(mRateBarData data : barDataList){
+                temp = getWordsLength( data.name );
+                if(temp > maxlen1) maxlen1 = temp;
+                temp = getWordsLength(data.info);
+                if(temp > maxlen2) maxlen2 = temp;
+            }
+            maxNameWordsLength = maxlen1;
+            maxInfoWordsLength = maxlen2;
+        }
+
+        //设置标题, 和是否显示标题,单独更改，需要直接访问属性值
+        public void setTitle(String title, Boolean isShowTitle){
+            this.title = title;
+            showTitle = isShowTitle;
+        }
+
+        //设置方法，来显示多个图表，需要两个layout为基础，一个是包含框，一个是每个图表的包含框
+        public void insertInto(ViewGroup parent, Boolean addAnimation){
+            //读入包含真个图表的布局
+            View chartView = LayoutInflater.from(parent.getContext()).inflate(R.layout.part_pic_of_bars, parent, false);
+            LinearLayout picLayout = (LinearLayout) chartView.findViewById(R.id.part_pic_of_bars_linearlayout); //用以包含整个图表的布局
+            TextView titleText = (TextView) picLayout.findViewById(R.id.part_title);
+            if(showTitle){
+                titleText.setText(title);
+            }else{
+                titleText.setVisibility(View.GONE); //完全不显示,位置也不留
+            }
+            parent.addView(picLayout); //插入整张图进入，
+            insertRateBars(picLayout, barDataList, maxNameWordsLength, maxInfoWordsLength, addAnimation); //将柱状图插入绘图区域， name一行字符，info一行的字符
+        } //insertInto
+    }//end class HorizentalBar
+
+    //计算字符串的字符长度，中文2，英文1，
+    public static int getWordsLength(String s) {
+        int length = 0;
+        String chinese = "[\u4e00-\u9fa5]";
+        String temp;
+        for (char c : s.toCharArray()) {
+            temp = "" + c; //String.valueOf(c)
+            if (temp.matches(chinese)) {
+                length += 2;
+            } else {
+                length++;
+            }
+        }//for
+        return (int) Math.ceil(length/2.0); //进位取整数
+    }
 
 
 

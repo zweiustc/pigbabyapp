@@ -9,34 +9,38 @@
     android:gravity="start|center"
     android:background="#fff">
 
-    <TextView           android:id="@+id/bar_name"
+    <TextView  android:id="@+id/bar_name"
         android:layout_width="86dp"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary_text"
         android:textSize="14sp"
         android:gravity="end"/>
 
-    <TextView          android:id="@+id/bar_rate_percent"
+    <TextView   android:id="@+id/bar_rate_percent"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent1"
-        android:gravity="center"
-        android:layout_marginRight="2dp"/>
+        android:gravity="end"
+        android:layout_marginRight="1dp"/>
 
     <View android:layout_width="2dp"  android:layout_height="match_parent" android:background="#77B2DFDB"/>
 
-    <ImageView         android:id="@+id/bar_rate"
+    <ImageView  android:id="@+id/bar_rate"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="10dp"
         android:layout_marginLeft="1dp"
         android:src="@drawable/rate_unclip_1"
+        android:textSize="12sp"
         android:background="@drawable/rate_clip" />
 
-    <TextView          android:id="@+id/bar_info"
-        android:layout_width="38dp"
+    <View android:layout_width="1px"  android:layout_height="match_parent" android:background="#77B2DFDB"/>
+
+    <TextView  android:id="@+id/bar_info"
+        android:layout_width="1dp"
+        android:textSize="12sp"
         android:layout_height="wrap_content"
-        android:gravity="right"/>
+        android:gravity="center"/>
 
 
 </LinearLayout>
