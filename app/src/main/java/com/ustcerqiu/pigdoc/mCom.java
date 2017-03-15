@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
@@ -317,23 +318,27 @@ public class mCom {
         }
 
     }//insertRateBars
-    public static void itemAnimation(final ViewGroup parent, final View v, int durationMs){
+    public static void itemAnimation(final ViewGroup parent, final View v, int startOffsetMs){
         //添加动画
         Handler handler = new Handler();
-        AnimationSet animationSet = new AnimationSet(true);
+        //AnimationSet animationSet = new AnimationSet(true);
         TranslateAnimation translateAnimation = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        translateAnimation.setDuration(600); //时间
-        animationSet.addAnimation(translateAnimation);
-        final TranslateAnimation animation = translateAnimation;
-        Runnable runnable =new Runnable() {
+        translateAnimation.setDuration(1000); //时间
+        translateAnimation.setStartOffset(startOffsetMs);
+        translateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
+        parent.addView(v);
+        v.startAnimation(translateAnimation);  //只有一个动画，所以就简单处理了
+        //animationSet.addAnimation(translateAnimation);
+        //final TranslateAnimation animation = translateAnimation;
+        /*Runnable runnable =new Runnable() {
             @Override
             public void run() {
                 parent.addView(v);
                 v.startAnimation(animation);
             }
         };
-        handler.postDelayed(runnable, durationMs);
+        handler.postDelayed(runnable, durationMs); */
     }//
   /*  public static void delay(int ms){
          try {
