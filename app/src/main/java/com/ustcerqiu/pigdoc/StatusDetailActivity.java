@@ -31,9 +31,9 @@ public class StatusDetailActivity extends BaseClass {
     private List<mCom.mRateBarData> getBarDataList(){
         List<mCom.mRateBarData> dataList = new ArrayList<>();
         mCom.mRateBarData barData;
-        int num = 13;
+        int num = 6;
         for(int i=0; i<num+1; i++){
-            barData = new mCom.mRateBarData("胎龄"+i+"年", ((float)i)/num, "this is test"  );
+            barData = new mCom.mRateBarData("母猪胎龄"+i+"年", Math.random(), "晶"  );
             dataList.add(barData);
         }
         return dataList;

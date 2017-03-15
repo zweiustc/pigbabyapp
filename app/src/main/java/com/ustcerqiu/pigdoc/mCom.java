@@ -307,7 +307,7 @@ public class mCom {
             rateNum = (int) (barData.rate * 10000);
             image = (ImageView) view.findViewById(R.id.bar_rate);
             clipDrawable = (ClipDrawable) image.getBackground();   //一定要擦背景吗？ 擦写前端是否可以? no
-            clipDrawable.setLevel(rateNum+50); //避免不出颜色
+            clipDrawable.setLevel(rateNum+5); //避免不出颜色
             text = (TextView) view.findViewById(R.id.bar_rate_percent);
             text.setText( String.format(Locale.getDefault()," %.1f%%", barData.rate*100).toUpperCase() ); //按当地习惯使用字母
             text = (TextView) view.findViewById(R.id.bar_info);
