@@ -92,7 +92,7 @@ public class StatusDetailActivity extends BaseClass {
         LinearLayout picTableGroup = (LinearLayout) findViewById(R.id.group_pics_tables);
         List<mCom.HorizontalRateBar> picList = getBarPicDataList();
         for (mCom.HorizontalRateBar pic : picList){
-            pic.insertInto(picTableGroup, true); //不使用动画
+            pic.insertInto(picTableGroup, true); //使用动画true
         }
 
 

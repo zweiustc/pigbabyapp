@@ -40,7 +40,7 @@
                     android:textSize="18sp"
                     android:textColor="@color/colorPrimary_text"
                     android:gravity="center"
-                    android:text="母猪胎龄结构"
+                    android:text="xxx构"
                     android:background="#fff"
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="1dp"/>
@@ -68,6 +68,936 @@
                     android:background="#fff"
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="1dp"/>
+
+                <!--标题行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="28dp"
+                    android:gravity="left|center">
+                    <!--表格一个单元-->
+                    <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:minWidth="38dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1px"
+                    android:background="@color/colorAccent1"
+                    android:gravity="center">
+                    <TextView android:id="@+id/part_table_cells"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1px"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorPrimary_text"
+                        android:text="标题一"/>
+                </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="20dp"
+                    android:gravity="left|center">
+                    <!--表格一个单元-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:minWidth="38dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="@color/colorAccent1"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/colorPrimary_text"
+                            android:text="标题一"/>
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+                <!--一行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="20dp"
+                    android:gravity="left|center">
+                    <!--表格一个单元-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <!--一行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="20dp"
+                    android:gravity="left|center">
+                    <!--表格一个单元-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <!--一行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="20dp"
+                    android:gravity="left|center">
+                    <!--表格一个单元-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <!--一行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="20dp"
+                    android:gravity="left|center">
+                    <!--表格一个单元-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1px"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+                <!--一行-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:minHeight="20dp"
+                    android:gravity="left|center">
+                    <!--表格一个单元-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:layout_marginRight="1dp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1px"
+                        android:background="#00f"
+                        android:gravity="end|center">
+                        <TextView android:id="@+id/part_table_cells"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="1dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/color_icons"
+                            android:text="2.22%"/>
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
             </LinearLayout>
 
 

@@ -1,6 +1,7 @@
 package com.ustcerqiu.pigdoc;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ClipDrawable;
 import android.os.Handler;
 import android.os.Parcel;
@@ -381,8 +382,8 @@ public class mCom {
 
 
 //################# 功能块6 ####################
-//定义一 类，该类的实例 内部包含一个横向柱状图的 数据，并包含有插入不同数目的图的方法
-//具体属性为：name, rate, info, 还有 title 是否显示title的是showTitle
+//定义一 类，该类的实例 内部包含一个横向柱状图的 mRateBarData数据的list，并包含有插入该图的方法
+//具体属性为：mRateBarData的name, rate, info, 还有 title 是否显示title的是showTitle
 // 具体属方法为：
     static public class HorizontalRateBar{
         //定义每一条数据所需要的参数 其余与参数与父类相同
@@ -418,7 +419,7 @@ public class mCom {
 
         //设置方法，来显示多个图表，需要两个layout为基础，一个是包含框，一个是每个图表的包含框
         public void insertInto(ViewGroup parent, Boolean addAnimation){
-            //读入包含真个图表的布局
+            //读入包含整个图表的布局
             View chartView = LayoutInflater.from(parent.getContext()).inflate(R.layout.part_pic_of_bars, parent, false);
             LinearLayout picLayout = (LinearLayout) chartView.findViewById(R.id.part_pic_of_bars_linearlayout); //用以包含整个图表的布局
             TextView titleText = (TextView) picLayout.findViewById(R.id.part_title);
@@ -447,6 +448,91 @@ public class mCom {
         }//for
         return (int) Math.ceil(length/2.0); //进位取整数
     }
+
+
+//################# 功能块7 ####################
+//定义一 类，该类的实例 内部包含一个的表格数据，并包含有插入不同数目的表格的方法
+//具体属性为：, 还有 title ，标题行，汇总行，是否显示title的是showTitle, 是否使用动画
+//是否显示 标题行的 showTitleLine 是否显示 汇总行的 showTotal, total行的数局需要后台设置，前台并不计算
+    static public class mTablePic {
+        String title; //表格大标题
+        Boolean showTitle = false; //是否显示标题
+        private List<String> titleRow; //表格的标题行
+        Boolean showTitleRow = false; //是否显示titleRow行，各行的标题
+        List<String> totalRow; //汇总行，位于表格数局第一行
+        Boolean showTotalRow = false; //是否显示 汇总 行
+        List<String[]> tableDataList; //每一行是一个数组ar，所有行组成一个表格数据list
+        Boolean addAnimation = false; //是否显示动画，默认不显示
+    ////////////////////////////////////////////////////////////
+        //不用特殊的构造函数
+        //设置大标题
+        public void setTitle(String title, Boolean showOrNot){
+            this.title = title;
+            this.showTitle = showOrNot;
+        }
+        //设置标题行
+        public void setTitleRow(List<String> titleRow, Boolean showOrNot){
+            this.titleRow = titleRow;
+            this.showTitleRow = showOrNot;
+        }
+        //设置汇总行
+        public void setTotalRow(List<String> totalRow, Boolean showOrNot){
+            this.totalRow = totalRow;
+            this.showTotalRow = showOrNot;
+        }
+        //设置内部数据
+        public void setTableDataList(List<String[]> tableDataList ){
+            this.tableDataList = tableDataList;
+        }
+        //设置是否需要动画
+        public void setAddAnimation(Boolean addOrNot){
+            this.addAnimation = addOrNot;
+        }
+    ////////////////////////////////////////////////////////////////////////////////
+        //将每行数据生成表格的标题行或汇总行 type为标识是 name行（0），还是 汇总行（1）,普通行(2)；两者处理方式略有不同
+        public void intoNameTotalRow(ViewGroup parentRow, List<String> dataList,  int type ){
+            //用数据生成表格的各个 表格单元，然后插入 行控件中
+            View cellView;
+            TextView text;
+            Context context = parentRow.getContext();
+            float scale = context.getResources().getDisplayMetrics().density; //dp与px的换算系数
+            //如果是标题行，则行高度要重新设置
+            if( type == 0 ) parentRow.setMinimumHeight((int)(28*scale));
+            int i = 0;
+            int timePart = 2000/dataList.size();
+            //加入各个单元格
+            for (String data : dataList){
+                cellView = LayoutInflater.from(parentRow.getContext()).inflate(R.layout.part_table_cell, parentRow, false ); //插入视图到parent,?先插入再改是否可以？
+                text = (TextView) cellView.findViewById(R.id.part_table_cell_text);
+                text.setText(data); //输入数据
+                if(type == 0 || type == 1){  //倘若是菜单栏
+                    //更改背景色，更改文字颜色
+                    cellView.setBackgroundColor(Color.parseColor("#e68901"));
+                    text.setTextColor(Color.parseColor("#fff"));
+                }
+                if(i==0) {
+                    //获取view的布局参数，更改对应值后，返回。用于设置第一列显示1.5倍宽度，默认为2
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cellView.getLayoutParams();//取控件textView当前的布局参数
+                    layoutParams.weight = 3;
+                    cellView.setLayoutParams(layoutParams);
+                }
+                if(addAnimation){
+                    //加入parent，并执行动画
+                    itemAnimation(parentRow, cellView ,i*timePart);
+                }else{
+                    parentRow.addView(cellView);
+                }
+                i++; //用以动画延时参数
+            }//for
+        }// intoNameTotalRow
+
+        //TODO 将本类实例 加入现有的活动布局中（包含生成表格图，然后加入）
+
+    //定义，将多个表插入到图表图中
+    //TODO 将本类实例list中按顺序加入活动布局中
+
+    }// class mAdapter
+
 
 
 
