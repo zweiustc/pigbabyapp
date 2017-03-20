@@ -18,7 +18,7 @@
         android:textSize="18sp"
         android:textColor="@color/colorPrimary_text"
         android:gravity="center"
-        android:text="母猪胎龄结构"
+        android:text="xxx标题"
         android:background="#fff"
         android:layout_marginBottom="3dp"
         android:layout_marginTop="1dp"/>

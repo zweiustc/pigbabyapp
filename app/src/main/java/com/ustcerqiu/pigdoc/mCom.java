@@ -461,7 +461,7 @@ public class mCom {
         Boolean showTitleRow = false; //是否显示titleRow行，各行的标题
         List<String> totalRow; //汇总行，位于表格数局第一行
         Boolean showTotalRow = false; //是否显示 汇总 行
-        List<String[]> tableDataList; //每一行是一个数组ar，所有行组成一个表格数据list
+        List<List<String>> tableDataList; //每一行是一个数组ar，所有行组成一个表格数据list
         Boolean addAnimation = false; //是否显示动画，默认不显示
     ////////////////////////////////////////////////////////////
         //不用特殊的构造函数
@@ -481,7 +481,7 @@ public class mCom {
             this.showTotalRow = showOrNot;
         }
         //设置内部数据
-        public void setTableDataList(List<String[]> tableDataList ){
+        public void setTableDataList(List<List<String>> tableDataList ){
             this.tableDataList = tableDataList;
         }
         //设置是否需要动画
@@ -490,48 +490,87 @@ public class mCom {
         }
     ////////////////////////////////////////////////////////////////////////////////
         //将每行数据生成表格的标题行或汇总行 type为标识是 name行（0），还是 汇总行（1）,普通行(2)；两者处理方式略有不同
-        public void intoNameTotalRow(ViewGroup parentRow, List<String> dataList,  int type ){
+        public void insertIntoRow(ViewGroup parentRow, List<String> dataList,  int type ){
             //用数据生成表格的各个 表格单元，然后插入 行控件中
             View cellView;
             TextView text;
+            LinearLayout cellLayout;
             Context context = parentRow.getContext();
             float scale = context.getResources().getDisplayMetrics().density; //dp与px的换算系数
             //如果是标题行，则行高度要重新设置
             if( type == 0 ) parentRow.setMinimumHeight((int)(28*scale));
             int i = 0;
-            int timePart = 2000/dataList.size();
             //加入各个单元格
             for (String data : dataList){
                 cellView = LayoutInflater.from(parentRow.getContext()).inflate(R.layout.part_table_cell, parentRow, false ); //插入视图到parent,?先插入再改是否可以？
                 text = (TextView) cellView.findViewById(R.id.part_table_cell_text);
+                cellLayout = (LinearLayout) cellView.findViewById(R.id.part_table_cell);
                 text.setText(data); //输入数据
                 if(type == 0 || type == 1){  //倘若是菜单栏
                     //更改背景色，更改文字颜色
-                    cellView.setBackgroundColor(Color.parseColor("#e68901"));
-                    text.setTextColor(Color.parseColor("#fff"));
+                    cellLayout.setBackgroundColor(Color.parseColor("#e68901"));
+                    text.setTextColor(Color.parseColor("#000000"));  //error  if input #fff
                 }
                 if(i==0) {
                     //获取view的布局参数，更改对应值后，返回。用于设置第一列显示1.5倍宽度，默认为2
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cellView.getLayoutParams();//取控件textView当前的布局参数
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cellLayout.getLayoutParams();//取控件textView当前的布局参数
                     layoutParams.weight = 3;
-                    cellView.setLayoutParams(layoutParams);
+                    cellLayout.setLayoutParams(layoutParams);
                 }
-                if(addAnimation){
-                    //加入parent，并执行动画
-                    itemAnimation(parentRow, cellView ,i*timePart);
-                }else{
-                    parentRow.addView(cellView);
-                }
+                parentRow.addView(cellView);
                 i++; //用以动画延时参数
             }//for
-        }// intoNameTotalRow
+        }// insert intoRow
 
-        //TODO 将本类实例 加入现有的活动布局中（包含生成表格图，然后加入）
+        //use the data inthe instance to create the table pic and then insert it into the collector parent.
+        public void insertTableTo(ViewGroup parent){
+            //create the whole table, and insert it to the viewGroup parent
+            //load the layout of the whole table (share the layout files with part_pic_of_bars
+            LinearLayout rowLayout;
+            Context context = parent.getContext();
+            View tableView = LayoutInflater.from(context).inflate(R.layout.part_pic_of_bars,parent, false); // first insert into the layout, then change the content ?
+            TextView tableTitle = (TextView) tableView.findViewById(R.id.part_title);
+            LinearLayout picParent = (LinearLayout) tableView.findViewById(R.id.part_pic_of_bars_linearlayout);
+            // deal with the table tile
+            if(showTitle) {
+                tableTitle.setText(this.title);
+            }else{
+                tableTitle.setVisibility(View.GONE);
+            }
+            //if show the title row , create the title row, other wise do nothing
+            if(showTitleRow){
+                View titleRowView = LayoutInflater.from(context).inflate(R.layout.part_table_row_collector_linearlayout, picParent, false);
+                rowLayout = (LinearLayout) titleRowView.findViewById(R.id.part_table_row);
+                insertIntoRow(rowLayout, this.titleRow, 0);
+                picParent.addView(titleRowView);
+            }
+            // if show the total row, create the total row, otherwise do nothing.
+            if(showTotalRow){
+                View titleRowView = LayoutInflater.from(context).inflate(R.layout.part_table_row_collector_linearlayout, picParent, false);
+                rowLayout = (LinearLayout) titleRowView.findViewById(R.id.part_table_row);
+                insertIntoRow(rowLayout, this.totalRow, 1);
+                picParent.addView(titleRowView);
+            }
+            //create the normal rows and insert them into the collector parent
+            int i = 0;
+            int timePart = 2000/this.tableDataList.size();
+            for(List<String> rowData : tableDataList){
+                View titleRowView = LayoutInflater.from(context).inflate(R.layout.part_table_row_collector_linearlayout, picParent, false);
+                rowLayout = (LinearLayout) titleRowView.findViewById(R.id.part_table_row);
+                insertIntoRow(rowLayout, rowData, 2);
+                if(addAnimation){
+                    itemAnimation(picParent, titleRowView ,i*timePart);
+                }else{
+                    picParent.addView(titleRowView);
+                }
+                i++;
+            }
+            parent.addView(tableView);
+        } //insertTableTo
 
     //定义，将多个表插入到图表图中
-    //TODO 将本类实例list中按顺序加入活动布局中
-
-    }// class mAdapter
+    //this method is not defined here. when need to insert some table list, u can use the method insertTableTo in the for loop
+    }// class mTablePic
 
 
 

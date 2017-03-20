@@ -46,7 +46,7 @@ public class StatusDetailActivity extends BaseClass {
         //TODO
         List<mCom.mRateBarData> barDataList;
         mCom.HorizontalRateBar pic;
-        for(int i=0; i<5; i++){
+        for(int i=0; i<2; i++){
             barDataList = getBarDataList(); //获取一张图
             pic = new mCom.HorizontalRateBar( barDataList, "养殖场编号-"+i, true ); //true显示标题
             picList.add(pic);
@@ -54,6 +54,38 @@ public class StatusDetailActivity extends BaseClass {
         return picList ;
     } //getBarPicDataList
 
+    //get the data of a single table
+    private mCom.mTablePic getSingleTableData(){
+        //TODO
+        //mTablePic have parameters, they are title showTitle titleRow showTitleRow totalRow show totalRow tableDataList addAnimation
+        int columnNum =(int) (Math.random()*15)+2; //generate the number of column
+        mCom.mTablePic tablePic = new mCom.mTablePic(); //new instance
+        tablePic.setTitle("the random title"+(int)(Math.random()*15), true ); //show title;
+        List<String> row = new ArrayList<>();
+        for(int i=0; i<columnNum; i++){
+            row.add("第"+i+"列");
+        }
+        tablePic.setTitleRow(row, true); //set title row
+
+        row = new ArrayList<>();
+        for(int i=0; i<columnNum; i++){
+            row.add("总"+i);
+        }
+        tablePic.setTotalRow(row, true); // set total row
+
+        int rowNum = (int) (Math.random()*10)+1;
+        List<List<String>> tableData = new ArrayList<>();
+        for(int i=0; i<rowNum; i++){
+            row = new ArrayList<>();
+            for(int j=0; j<columnNum; j++){
+                row.add(String.format("%3.1f",Math.random()*100));
+            }
+            tableData.add(row);
+        }//for
+        tablePic.setTableDataList(tableData);
+        tablePic.setAddAnimation(true); //使用动画
+        return tablePic;
+    }//getSingleTableData
 
  ///--##############################################################################-----/////
     @Override
@@ -83,10 +115,10 @@ public class StatusDetailActivity extends BaseClass {
 
         //处理中间栏目
         //单个图加入
-        List<mCom.mRateBarData> barDataList;
-        barDataList = getBarDataList(); //获取数据
-        LinearLayout barGroup = (LinearLayout) findViewById(R.id.collect_bars_linear_layout);
-        mCom.insertRateBars(barGroup, barDataList, 4, 2, true); //要接收插入的组件，所需数据，name一行字汉子数，info栏目的显示宽度（汉子数目）
+       // List<mCom.mRateBarData> barDataList;
+      //  barDataList = getBarDataList(); //获取数据
+      //  LinearLayout barGroup = (LinearLayout) findViewById(R.id.collect_bars_linear_layout);
+     //   mCom.insertRateBars(barGroup, barDataList, 4, 2, true); //要接收插入的组件，所需数据，name一行字汉子数，info栏目的显示宽度（汉子数目）
 
         // 一组图加入
         LinearLayout picTableGroup = (LinearLayout) findViewById(R.id.group_pics_tables);
@@ -94,6 +126,12 @@ public class StatusDetailActivity extends BaseClass {
         for (mCom.HorizontalRateBar pic : picList){
             pic.insertInto(picTableGroup, true); //使用动画true
         }
+
+        //insert tables
+        for(int i=0; i<2; i++){ //control the number of the tables
+            getSingleTableData().insertTableTo(picTableGroup);   //sample of how to use the table insert method
+        }
+
 
 
 
